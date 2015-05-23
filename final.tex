@@ -1,0 +1,136 @@
+\documentclass{book}
+\usepackage{anyfontsize}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[normalem]{ulem}
+\usepackage{tocloft}
+\usepackage{keycommand}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{mathspec}
+\usepackage{xltxtra,xunicode}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+% \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\usepackage[setpagesize=false, % page size defined by xetex
+          unicode=false, % unicode breaks when used with xetex
+          xetex]{hyperref}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Ejemplo},
+            pdftitle={Ejemplo},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+
+% Título del trabajo. Arial 24 puntos, negrita, centrado. Separación de 120 y 12 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\usepackage{titling}
+\title{Ejemplo}
+\author{Emilio Cobos, Celia Herrera \and Víctor Gutiérrez}
+
+\pretitle{\begin{center}\vspace{120pt}\bfseries\sffamily\fontsize{24pt}{1em}\selectfont}
+\posttitle{\vspace{12pt}\end{center}}
+% Subtítulo del trabajo. Arial 20 puntos, negrita, centrado. Separación de 12 y 40 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\newcommand{\subtitle}{\begin{center}\vspace{12pt}\sffamily\bfseries\fontsize{20pt}{1em}\selectfont Ejemplo \vspace{40pt}\end{center}}
+
+% Versión. Arial 16 puntos, negrita, cursiva, centrado. Separación de 20 puntos con respecto a los párrafos anterior y siguiente.
+\newcommand{\version}{\begin{center}\vspace{20pt}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Ejem. 1.0. \vspace{20pt}\end{center}}
+
+% we don't use the latex date to put it before the authors
+\date{}
+\newcommand{\customdate}{\begin{center}\vspace{20pt}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Fecha \vspace{90pt}\end{center}}
+\renewcommand{\maketitlehookb}{\subtitle\version\customdate}
+
+% Tabla de conteidos
+% El estilo que se aplicará a esta etiqueta será Arial, 18 puntos, negrita, alineación izquierda, y separación de 20 y 50 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\renewcommand{\contentsname}{Tabla de contenidos}
+\setlength\cftbeforetoctitleskip{20pt}
+\setlength\cftaftertoctitleskip{50pt}
+\renewcommand{\cfttoctitlefont}{\bfseries\sffamily\fontsize{18pt}{1em}\selectfont}
+
+% Títulos de aparado. Arial 14 puntos, negrita, alineación izquierda. Separación de 12 y 6 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\titlespacing*{\section}
+    {0pt}{12pt}{6pt}
+    \titleformat{\section}[hang]
+    {\bfseries\sffamily\fontsize{14pt}{1em}\selectfont}{\thesection}{1em}{}
+% Títulos de subapartado. Arial 12 puntos, negrita, cursiva alineación izquierda. Separación de 12 y 6 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\titlespacing*{\subsection}
+    {0pt}{12pt}{6pt}
+\titleformat{\subsection}[hang]
+    {\bfseries\sffamily\itshape\fontsize{12pt}{1em}\selectfont}{\thesubsection}{1em}{}
+
+% Títulos de subsubapartado. Arial 12 puntos, subrayado, alineación izquierda. Separación de 12 y 6 puntos con respecto a los párrafos anterior y siguiente respectivamente.
+\titlespacing*{\subsubsection}
+    {0pt}{12pt}{6pt}
+\titleformat{\subsubsection}[hang]
+    {\sffamily\fontsize{12pt}{1em}\selectfont}{\thesubsubsection}{1em}{\uline}
+% Estilo normal. Times New Roman 12 puntos, alineación completa. Interlineado sencillo. Separación de 0 y
+
+
+
+% name, authors, description, sources
+\newcommand\high{Alta}
+\newcommand\veryhigh{Muy Alta}
+\newcommand\medium{Media}
+\newcommand\vital{Vital}
+\newcommand\verified{Verificado}
+\newkeycommand\objective[id=x,version=1.0,importance=\high,urgency=\medium,state=\verified,stability=\high][4]{%
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{OBJ-\commandkey{id}} & #1 \\ \hline
+    \textbf{Version} & \commandkey{version} \\ \hline
+    \textbf{Authors} & #2 \\ \hline
+    \textbf{Descripción} & #3 \\ \hline
+    \textbf{Fuentes} & #4 \\ \hline
+    \textbf{Importancia} & \commandkey{importance} \\ \hline
+    \textbf{Urgencia} & \commandkey{urgency} \\ \hline
+    \textbf{Estado} & \commandkey{state} \\ \hline
+    \textbf{Estabilidad} & \commandkey{stability} \\ \hline
+\end{tabularx}
+}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\thispagestyle{empty}
+\end{titlingpage}
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+\input{body.tex}
+
+\end{document}

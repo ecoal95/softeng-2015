@@ -1,0 +1,6 @@
+\select@language {english}
+\contentsline {paragraph}{\numberline {0.0.0.0.1}Dotation}{3}{paragraph.0.0.0.0.1}
+\contentsline {section}{\numberline {0.1}Diagrama de clases}{3}{section.0.1}
+\contentsline {section}{\numberline {0.2}Ejemplo}{4}{section.0.2}
+\contentsline {subsection}{\numberline {0.2.1}Glosario de clases}{4}{subsection.0.2.1}
+\contentsline {subsubsection}{\numberline {0.2.1.1}Glosario de clases}{4}{subsubsection.0.2.1.1}
