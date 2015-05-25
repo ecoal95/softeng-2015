@@ -1,4 +1,5 @@
-TEX_FILES := $(wildcard */*.tex)
+BUILD_FILES := final.tex body.tex
+TEX_FILES := $(filter-out $(BUILD_FILES), $(sort $(shell find . -name '*.tex' | sed 's/^\.\///g')))
 DIA_DIAGRAMS := $(wildcard */*.dia)
 DIA_IMAGES := $(DIA_DIAGRAMS:.dia=.dia.png)
 
@@ -7,8 +8,11 @@ DIA_IMAGES := $(DIA_DIAGRAMS:.dia=.dia.png)
 all: final.pdf
 	@echo > /dev/null
 
-final.pdf: final.tex body.tex $(DIA_IMAGES)
+final.pdf: $(BUILD_FILES) $(DIA_IMAGES)
+	# Two compilations to get the TOC working
 	xelatex $<
+	xelatex $<
+	rm body.tex *.aux *.log *.toc
 
 body.tex: $(TEX_FILES)
 	@echo $^
@@ -18,4 +22,4 @@ body.tex: $(TEX_FILES)
 	dia -t png -e $@ $<
 
 clean:
-	rm -f final.pdf $(DIA_IMAGES) body.tex
+	rm -f final.pdf body.tex $(DIA_IMAGES) *.aux *.log *.toc

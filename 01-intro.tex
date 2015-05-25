@@ -1,0 +1,21 @@
+\section{Introducción}
+
+La aplicación se encarga del manejo de las emergencias del servicio 112.
+
+Dado el el carácter de la aplicación, el uso va a ser cerrado (sólo usuarios previamente dados de alta por un administrador podrán acceder a ella).
+
+Hay diversos tipos de usuarios que pueden acceder a la aplicación: Personal de emergencias, operadores de teléfono, y responsables del centro...
+
+Un ejemplo del proceso sería el siguiente:
+
+\begin{enumerate}
+\item{El operador de teléfono, una vez logueado, recibe una llamada referente a una emergencia.}
+\item{Los datos aportados son registrados en la aplicación, y si el individuo que reporta la emergencia se identifica, se marca la emergencia como confirmada.}
+\item{El operador de teléfono avisa a los centros necesarios dependiendo del tipo y la gravedad de la emergencia.}
+\item{Es el administrador del centro el que, coordinado con el operador, asigna las dotaciones necesarias a una emergencia, o avisa al operador de que no puede satisfacer las necesidades de la misma. En este último caso, este tipo de incidencias (no hay dotaciones o vehículos disponibles, etc.) pueden quedar registradas como comentarios de una emergencia.}
+\item{Las dotaciones asignadas acuden a la emergencia, y la solventan asistiendo a las personas que sea necesario. Las personas asistidas quedan registradas (en caso de no estarlo previamente), y asociadas con esa emergencia.}
+\item{Cualquiera de los responsables de las dotaciones puede marcar la emergencia como resuelta.}
+\item{Tras intervenir en cualquier emergencia, los diferentes responsbles de las dotaciones han de escribir un informe, en el que queda registrado también todo el material utilizado. En caso de agotarse el material, el sistema avisa al responsable del centro en cuestión automáticamente.}
+\item{Una vez todos los informes son recibidos, el sistema marca automáticamente la emergencia como finalizada y el proceso acaba. Nótese que una emergencia no tiene por qué haber sido resuelta para ser finalizada.}
+\end{enumerate}
+

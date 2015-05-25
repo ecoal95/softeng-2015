@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[twoside]{article}
 \usepackage{anyfontsize}
 \usepackage{titlesec}
 \usepackage{lipsum}
@@ -63,6 +63,10 @@
 \newcommand{\customdate}{\begin{center}\vspace{20pt}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Fecha \vspace{90pt}\end{center}}
 \renewcommand{\maketitlehookb}{\subtitle\version\customdate}
 
+% Secciones en páginas impares
+\let\oldsection\section
+\def\section{\cleardoublepage\oldsection}
+
 % Tabla de conteidos
 % El estilo que se aplicará a esta etiqueta será Arial, 18 puntos, negrita, alineación izquierda, y separación de 20 y 50 puntos con respecto a los párrafos anterior y siguiente respectivamente.
 \renewcommand{\contentsname}{Tabla de contenidos}
@@ -90,20 +94,56 @@
 
 
 
-% name, authors, description, sources
-\newcommand\high{Alta}
+% name, authors, description, subobjectives, sources
 \newcommand\veryhigh{Muy Alta}
+\newcommand\high{Alta}
 \newcommand\medium{Media}
+\newcommand\low{Baja}
 \newcommand\vital{Vital}
 \newcommand\verified{Verificado}
-\newkeycommand\objective[id=x,version=1.0,importance=\high,urgency=\medium,state=\verified,stability=\high][4]{%
+\newcommand\validated{Validado}
+\newkeycommand\objective[id=x,version=1.0,importance=\high,urgency=\medium,state=\verified,stability=\high][5]{%
 \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{OBJ-\commandkey{id}} & #1 \\ \hline
+    \textbf{OBJ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Version} & \commandkey{version} \\ \hline
-    \textbf{Authors} & #2 \\ \hline
+    \textbf{Autores} & #2 \\ \hline
     \textbf{Descripción} & #3 \\ \hline
-    \textbf{Fuentes} & #4 \\ \hline
+    \ifx&#4&\else
+    \textbf{Subobjetivos} & #4 \\ \hline
+    \fi
+    \textbf{Fuentes} & #5 \\ \hline
+    \textbf{Importancia} & \commandkey{importance} \\ \hline
+    \textbf{Urgencia} & \commandkey{urgency} \\ \hline
+    \textbf{Estado} & \commandkey{state} \\ \hline
+    \textbf{Estabilidad} & \commandkey{stability} \\ \hline
+\end{tabularx}
+}
+
+% Nombre, dni, rol, descripción
+\newcommand\staff[4]{
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Nombre} & #1 \\ \hline
+    \textbf{DNI} & #2 \\ \hline
+    \textbf{Rol} & #3 \\ \hline
+    \textbf{Descripción} & #4 \\ \hline
+\end{tabularx}
+}
+
+% Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, datos específicos, intervalo temporal
+\newkeycommand\informationrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\verified,stability=\high][8]{
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{OBJ-\commandkey{id}} & \textbf{#1} \\ \hline
+    \textbf{Version} & \commandkey{version} \\ \hline
+    \textbf{Autores} & #2 \\ \hline
+    \textbf{Fuentes} & #3 \\ \hline
+    \textbf{Objetivos asociados} & #4 \\ \hline
+    \textbf{Requisitos asociados} & #5 \\ \hline
+    \textbf{Descripción} & #6 \\ \hline
+    \textbf{Datos específicos} & \begin{itemize}#7\end{itemize} \\ \hline
+    \textbf{Intervalo tempporal} & #8 \\ \hline
     \textbf{Importancia} & \commandkey{importance} \\ \hline
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
     \textbf{Estado} & \commandkey{state} \\ \hline
@@ -126,6 +166,7 @@
 \maketitle
 \thispagestyle{empty}
 \end{titlingpage}
+\setcounter{page}{1}
 \hypersetup{linkcolor=black}
 \setcounter{tocdepth}{3}
 \tableofcontents
