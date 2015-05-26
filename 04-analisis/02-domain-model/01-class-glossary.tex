@@ -1,0 +1,39 @@
+\subsubsection{Glosario de clases}
+\begin{description}
+    \item[User] \hfill \\
+        Esta clase representa al usuario base de nuestra aplicación, ya sea operario de teléfono, personal de emergencia, o administrador de un centro.
+    \item[PhoneOperator] \hfill \\
+        Esta clase representa a un operario de teléfono. Está asociado con \texttt{Emergency} (puede dar de alta una emergencia, y ha de quedar registrado).
+    \item[EmergencyPersonal] \hfill \\
+        Representa un usuario que es personal de emergencias. Pertenece a una dotación \texttt{Dotation}, y puede ser o no responsable de ella. \par
+        Si es responsable de una dotación puede escribir múltiples ``secciones" de informe (\texttt{Section}) , una por emergencia. \par
+        Es posible que un personal de emergencia no esté en una dotación (por ejemplo si está de baja o jubilado).
+    \item[CenterManager] \hfill \\
+        El usuario que actúa como responsable del centro.
+    \item[Dotation] \hfill \\
+        Esta clase representa una dotación, con su correspondiente especialidad. Una dotación está compuesta por todos sus miembros, que son personal de emergencia. Una dotación pertenece a un centro de emergencias (\texttt{Center}) y puede tener acceso a múltiples vehículos (\texttt{Vehicle}). \par
+        Una dotación podría no tener miembros asociados, por ejemplo, si queda obsoleta, o es reemplazada por otra.
+    \item[Vehicle] \hfill \\
+        Esta clase representa un vehículo usable por una dotación.
+    \item[Center] \hfill \\
+        Representa un centro de emergencias.
+    \item[InventoryItem] \hfill \\
+        Representa un tipo de elemento en el inventario de un centro. Cada centro lleva por completo su propio inventario, no comparten nada. Por hacer una analogía, esta clase podría tener el nombre de ``Caja de aspirinas", y tendría varias instancias (\texttt{InventoryItemInstance}), que podrían ser cajas particulares con su fecha de caducidad y estado particular. \par
+        Así, \textbf{para comprobar el stock de un determinado elemento}, el sistema sólo tendría que \textbf{contar el numero de instancias que no han sido utilizadas en una emergencia, están en buen estado (\texttt{corrupted == false}) y no están caducadas}. \par
+        Igualmente, para saber si se ha caducado algún elemento desde la última vez que se comprobó el inventario, el sistema tendría que buscar instancias caducadas en el intervalo de tiempo correspondiente.
+    \item[InventoryItemInstance] \hfill \\
+        Representa una instancia de un ítem del inventario tal y como se ha descrito arriba, que puede estar o no asociada a una sección de un informe (\texttt{Section}).
+        La asociación con \texttt{Section} representa que esa instancia ha sido usada en una determinada emergencia por una dotación.
+    \item[Section] \hfill \\
+        Representa cada sección del informe escrita por el responsable de una dotación relativa a una emergencia. Aquí es donde queda registrado el material usado durante la emergencia. \par
+        El representante correspondiente queda guardado aparte porque consideramos que es necesario que la persona que lo escriba físicamente quede registrado, y cabe la posiblidad de que el responsable de una dotación cambie en un determinado momento.
+    \item[EmergencyInform] \hfill \\
+        Esta clase representa el informe asociado a una emergencia. El informe está compuesto por las diferentes secciones escritas por cada dotación asignada. Cuando todas las secciones son creadas, el sistema puede marcar la emergencia como finalizada.
+    \item[Emergency] \hfill \\
+        Esta es la clase central que representa una emergencia. Para guardar un pseudo-histórico de los datos, el estado de la emergencia se guarda como la fecha particular en la que se ha marcado. Esto permite cierta ``trazabilidad" del estado de la emergencia en cada momento.\footnote{Se podría haber flexibilizado más haciendo una clase que estuviera asociada de la forma 1-n, y que tuviera el usuario que lo marca también.} \par
+        A cada emergencia puede haber asignada varias dotaciones.
+    \item[ExternalPerson] \hfill \\
+        Esta clase sirve representa una persona externa, que puede ser la persona que reporta una emergencia, ser una persona atendida en una emergencia, o ambas (incluso en emergencias distintas).
+    \item[Comment] \hfill \\
+        Esta clase es aportación propia: Permite tener una serie de comentarios asociados a una emergencia. Estos comentarios pueden ser de cualquier persona relacionada con la emergencia (personal asociado, el operador, responsable del centro al que pertenece alguna dotación, etc...).
+\end{description}

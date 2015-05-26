@@ -9,10 +9,16 @@
 \usepackage{booktabs}
 \usepackage{mathspec}
 \usepackage{xltxtra,xunicode}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{titling}
 
 \usepackage[margin=1in]{geometry}
 \usepackage{polyglossia}
-\setmainlanguage{english}
+\setmainlanguage{spanish}
 \makeatother
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
@@ -32,6 +38,7 @@
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 
+
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 \setlength{\parindent}{0pt}
@@ -41,15 +48,31 @@
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 
+\setlength{\headheight}{20.0pt}
+
+\title{Ejemplo}
+\author{Emilio Cobos, Celia Herrera, Víctor Barrueco}
 
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 
-% Título del trabajo. Arial 24 puntos, negrita, centrado. Separación de 120 y 12 puntos con respecto a los párrafos anterior y siguiente respectivamente.
-\usepackage{titling}
-\title{Ejemplo}
-\author{Emilio Cobos, Celia Herrera \and Víctor Gutiérrez}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO]{\bfseries\fontsize{11pt}{2em}\selectfont{Ejemplo}}
+\fancyhead[RO,LE]{\bfseries\fontsize{11pt}{2em}\selectfont{\thepage}}
+\fancyhead[RE]{\bfseries\fontsize{11pt}{2em}\selectfont{E. Cobos, C. Herrera, V. Barrueco}}
 
+\renewcommand{\headrulewidth}{1pt}
+% TOC page number
+\fancypagestyle{plain}{%
+    \fancyhf{}% clears all header and footer fields
+    \fancyfoot[C]{--~\thepage~--}%
+    \renewcommand*{\headrulewidth}{0pt}%
+    \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Título del trabajo. Arial 24 puntos, negrita, centrado. Separación de 120 y 12 puntos con respecto a los párrafos anterior y siguiente respectivamente.
 \pretitle{\begin{center}\vspace{120pt}\bfseries\sffamily\fontsize{24pt}{1em}\selectfont}
 \posttitle{\vspace{12pt}\end{center}}
 % Subtítulo del trabajo. Arial 20 puntos, negrita, centrado. Separación de 12 y 40 puntos con respecto a los párrafos anterior y siguiente respectivamente.
@@ -92,6 +115,7 @@
     {\sffamily\fontsize{12pt}{1em}\selectfont}{\thesubsubsection}{1em}{\uline}
 % Estilo normal. Times New Roman 12 puntos, alineación completa. Interlineado sencillo. Separación de 0 y
 
+\newcommand\aftertabularx{\vspace{5pt plus 10pt minus 2pt}}
 
 
 % name, authors, description, subobjectives, sources
@@ -118,6 +142,7 @@
     \textbf{Estado} & \commandkey{state} \\ \hline
     \textbf{Estabilidad} & \commandkey{stability} \\ \hline
 \end{tabularx}
+\aftertabularx
 }
 
 % Nombre, dni, rol, descripción
@@ -129,26 +154,28 @@
     \textbf{Rol} & #3 \\ \hline
     \textbf{Descripción} & #4 \\ \hline
 \end{tabularx}
+\aftertabularx
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, datos específicos, intervalo temporal
 \newkeycommand\informationrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\verified,stability=\high][8]{
 \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{OBJ-\commandkey{id}} & \textbf{#1} \\ \hline
+    \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Version} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
     \textbf{Objetivos asociados} & #4 \\ \hline
     \textbf{Requisitos asociados} & #5 \\ \hline
     \textbf{Descripción} & #6 \\ \hline
-    \textbf{Datos específicos} & \begin{itemize}#7\end{itemize} \\ \hline
+    \textbf{Datos específicos} & \begin{itemize}[noitemsep,nolistsep]#7\end{itemize} \\ \hline
     \textbf{Intervalo tempporal} & #8 \\ \hline
     \textbf{Importancia} & \commandkey{importance} \\ \hline
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
     \textbf{Estado} & \commandkey{state} \\ \hline
     \textbf{Estabilidad} & \commandkey{stability} \\ \hline
 \end{tabularx}
+\aftertabularx
 }
 
 % Redefines (sub)paragraphs to behave more like sections
@@ -166,10 +193,12 @@
 \maketitle
 \thispagestyle{empty}
 \end{titlingpage}
+\thispagestyle{plain}
 \setcounter{page}{1}
 \hypersetup{linkcolor=black}
 \setcounter{tocdepth}{3}
 \tableofcontents
+
 \newpage
 
 \input{body.tex}
