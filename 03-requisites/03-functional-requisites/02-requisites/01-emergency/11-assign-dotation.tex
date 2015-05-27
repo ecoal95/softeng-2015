@@ -1,0 +1,24 @@
+\functionalrequisite[id=11, importance=\vital, urgency=\veryhigh]
+{Asignar dotación a una emergencia}
+{Emilio Cobos Álvarez, Celia Herrera Ferreira y Víctor Barrueco Gutiérrez}
+{Enunciado de la práctica}
+{}
+{}
+{El sistema deberá comportarse tal como se describe en el siguiente caso de uso cuando se asigne una dotación a una emergencia}
+{El usuario debe ser un responsable de un centro de emergencias. \par
+La emergencia debe estar registrada y confirmada, pero no resuelta. \par
+La dotación ha de pertenecer al centro del que el usuario es responsable
+}
+{
+1 & El usuario recibe una llamada\footnote{Llegado el momento podría ser otro tipo de aviso automatizado, pero es indudable que el teléfono es el método más inmediato de comunicación a distancia, y por lo tanto el más indicado en este caso} solicitando una dotación de su centro con una determinada especialidad para atender una determinada emergencia \\ \hline
+2 & El usuario elige la emergencia y la dotación que enviar a la emergencia \\ \hline
+3 & El sistema comprobará que la dotación seleccionada no está ya asignada a una emergencia no resuelta, y que la emergencia seleccionada no está resuelta, pero sí confirmada \\ \hline
+4 & Se asigna la dotación a la emergencia \\
+}
+{La dotación queda asignada a esa emergencia}
+{
+1 & Si existe algún problema de comunicación o de recursos disponibles, el caso de uso termina, y es recomendable que el operador de teléfono deje un comentario en la emergencia indicando lo sucedido \\ \hline
+2 & Si existe algún problema de recursos disponibles, se informa al operador y el caso de uso termina \\ \hline
+3 & Si alguna de las condiciones no se cumple, el caso de uso vuelve al paso 2 \\
+}
+

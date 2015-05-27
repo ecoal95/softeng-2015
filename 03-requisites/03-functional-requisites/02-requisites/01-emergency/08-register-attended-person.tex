@@ -1,0 +1,20 @@
+\functionalrequisite[id=08, importance=\veryhigh, urgency=\high]
+{Registrar persona atendida}
+{Emilio Cobos Álvarez, Celia Herrera Ferreira y Víctor Barrueco Gutiérrez}
+{Enunciado de la práctica}
+{}
+{}
+{El sistema deberá comportarse tal como se describe en el siguiente caso de uso cuando una persona externa haya sido atendida en una emergencia}
+{La emergencia debe estar registrada y confirmada}
+{
+1 & El usuario selecciona una emergencia a la que añadir una persona atendida \\ \hline
+2 & El sistema comprobará que la emergencia existe y que el usuario es responsable de alguna de las dotaciones asignadas a dicha emergencia \\ \hline
+3 & Se introducen los datos de la persona atendida, se comprueban y queda registrada \\
+}
+{La persona queda marcada como atendida}
+{
+2 & Si la emergencia no existe o el usuario no está autorizado, el caso de uso termina \\ \hline
+3 & Si la persona ya está marcada como atendida, el caso de uso termina \\ \hline
+3 & Si no existe una persona atendida con esos datos, se da de alta \\ \hline
+}
+

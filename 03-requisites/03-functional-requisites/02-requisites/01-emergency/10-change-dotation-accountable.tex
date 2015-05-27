@@ -1,0 +1,21 @@
+\functionalrequisite[id=10, importance=\vital, urgency=\veryhigh]
+{Cambiar responsable de una dotación}
+{Emilio Cobos Álvarez, Celia Herrera Ferreira y Víctor Barrueco Gutiérrez}
+{Enunciado de la práctica}
+{}
+{}
+{El sistema deberá comportarse tal como se describe en el siguiente caso de uso cuando se desee cambiar el responsable de alguna dotación}
+{El usuario debe ser un responsable de un centro de emergencias}
+{
+1 & El usuario elige una dotación para cambiar el responsable \\ \hline
+2 & El sistema comprobará que el usuario es un responsable de un centro de emergencias y que la dotación seleccionada pertenece al centro del que es responsable \\ \hline
+3 & El usuario escoge un nuevo responsable de entre los integrantes de la dotación escogida \\ \hline
+4 & El sistema comprueba que no hay emergencias pendientes de la redacción de una sección del informe por el responsable actual \\ \hline
+5 & El usuario escogido queda registrado como nuevo responsable de la dotación \\
+}
+{El usuario queda registrado como nuevo responsable de la dotación}
+{
+2 & Si alguna de las condiciones especificadas no se cumple, el caso de uso termina \\ \hline
+4 & Si alguna de las condiciones especificadas no se cumple, el caso de uso termina \\
+}
+

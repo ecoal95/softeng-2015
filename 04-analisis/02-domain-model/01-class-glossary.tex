@@ -3,7 +3,7 @@
     \item[User] \hfill \\
         Esta clase representa al usuario base de nuestra aplicación, ya sea operario de teléfono, personal de emergencia, o administrador de un centro.
     \item[PhoneOperator] \hfill \\
-        Esta clase representa a un operario de teléfono. Está asociado con \texttt{Emergency} (puede dar de alta una emergencia, y ha de quedar registrado).
+        Esta clase representa a un operario de teléfono.
     \item[EmergencyPersonal] \hfill \\
         Representa un usuario que es personal de emergencias. Pertenece a una dotación \texttt{Dotation}, y puede ser o no responsable de ella. \par
         Si es responsable de una dotación puede escribir múltiples ``secciones" de informe (\texttt{Section}) , una por emergencia. \par
@@ -33,7 +33,9 @@
         Esta es la clase central que representa una emergencia. Para guardar un pseudo-histórico de los datos, el estado de la emergencia se guarda como la fecha particular en la que se ha marcado. Esto permite cierta ``trazabilidad" del estado de la emergencia en cada momento.\footnote{Se podría haber flexibilizado más haciendo una clase que estuviera asociada de la forma 1-n, y que tuviera el usuario que lo marca también.} \par
         A cada emergencia puede haber asignada varias dotaciones.
     \item[ExternalPerson] \hfill \\
-        Esta clase sirve representa una persona externa, que puede ser la persona que reporta una emergencia, ser una persona atendida en una emergencia, o ambas (incluso en emergencias distintas).
+        Esta clase representa una persona externa, que puede ser la persona que reporta una emergencia, ser una persona atendida en una emergencia, o ambas (incluso en emergencias distintas).
+    \item[EmergencyReport] \hfill \\
+        Esta clase sirve para representar el reporte de una emergencia. Cada reporte está hecho por un operador ``en nombre de" una persona externa en un determinado momento. Toda emergencia registrada tiene al menos un \texttt{EmergencyReport}, y el correspondiente operador (el creador del primero) es el que ha dado de alta la emergencia.
     \item[Comment] \hfill \\
         Esta clase es aportación propia: Permite tener una serie de comentarios asociados a una emergencia. Estos comentarios pueden ser de cualquier persona relacionada con la emergencia (personal asociado, el operador, responsable del centro al que pertenece alguna dotación, etc...).
 \end{description}

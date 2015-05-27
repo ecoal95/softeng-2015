@@ -184,33 +184,52 @@
 \aftertabularx
 }
 
-% Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, precondición(es), secuencia normal, excepciones
+% Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, precondición(es), secuencia normal, postcondición(es), excepciones
 \newkeycommand\functionalrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][9]{
+    \def\frid{\commandkey{id}}
+    \def\frname{#1}
+    \def\frversion{\commandkey{version}}
+    \def\frauthors{#2}
+    \def\frsources{#3}
+    \def\frassocobjs{#4}
+    \def\frassocreqs{#5}
+    \def\frdescription{#6}
+    \def\frpreconds{#7}
+    \def\frnormalsequence{#8}
+    \def\frpostconds{#9}
+    \def\frexceptions{#10}
+    \def\frimportance{\commandkey{importance}}
+    \def\frurgency{\commandkey{urgency}}
+    \def\frstate{\commandkey{state}}
+    \def\frstability{\commandkey{stability}}
+    \functionalrequisitecont
+}
+\newcommand\functionalrequisitecont[1]{
 \begin{tabularx}{\textwidth}{|l|X|}
     \hline
-    \textbf{FRQ-\commandkey{id}} & \textbf{#1} \\ \hline
-    \textbf{Versión} & \commandkey{version} \\ \hline
-    \textbf{Autores} & #2 \\ \hline
-    \textbf{Fuentes} & #3 \\ \hline
-    \textbf{Objetivos asociados} & #4 \\ \hline
-    \textbf{Requisitos asociados} & #5 \\ \hline
-    \textbf{Descripción} & #6 \\ \hline
-    \textbf{Precondiciones} & #7 \\ \hline
+    \textbf{FRQ-\frid} & \textbf{\frname} \\ \hline
+    \textbf{Versión} & \frversion \\ \hline
+    \textbf{Autores} & \frauthors \\ \hline
+    \textbf{Fuentes} & \frsources \\ \hline
+    \textbf{Objetivos asociados} & \frassocobjs \\ \hline
+    \textbf{Requisitos asociados} & \frassocreqs \\ \hline
+    \textbf{Descripción} & \frdescription \\ \hline
+    \textbf{Precondiciones} & \frpreconds \\ \hline
     \textbf{Secuencia normal} &
-        {\begin{tabularx}{\cellwidth}{l|X}
-            \hline
+        {\begin{tabularx}{\cellwidth}{c|X}
             \textbf{Paso} & \textbf{Acción} \\ \hline
-            #8
+            \frnormalsequence
         \end{tabularx}} \\ \hline
+    \textbf{Postcondiciones} & \frpostconds \\ \hline
     \textbf{Excepciones} &
-        {\begin{tabularx}{\cellwidth}{l|X}
+        {\begin{tabularx}{\cellwidth}{c|X}
             \textbf{Paso} & \textbf{Acción} \\ \hline
-            #9
+            #1
         \end{tabularx}} \\ \hline
-    \textbf{Importancia} & \commandkey{importance} \\ \hline
-    \textbf{Urgencia} & \commandkey{urgency} \\ \hline
-    \textbf{Estado} & \commandkey{state} \\ \hline
-    \textbf{Estabilidad} & \commandkey{stability} \\ \hline
+    \textbf{Importancia} & \frimportance \\ \hline
+    \textbf{Urgencia} & \frurgency \\ \hline
+    \textbf{Estado} & \frstate \\ \hline
+    \textbf{Estabilidad} & \frstability \\ \hline
 \end{tabularx}
 \aftertabularx
 }
