@@ -162,14 +162,14 @@
 \begin{tabularx}{\textwidth}{|l|X|}
     \hline
     \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
-    \textbf{Version} & \commandkey{version} \\ \hline
+    \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
     \textbf{Objetivos asociados} & #4 \\ \hline
     \textbf{Requisitos asociados} & #5 \\ \hline
     \textbf{Descripción} & #6 \\ \hline
     \textbf{Datos específicos} & \begin{itemize}[noitemsep,nolistsep]#7\end{itemize} \\ \hline
-    \textbf{Intervalo tempporal} & #8 \\ \hline
+    \textbf{Intervalo temporal} & #8 \\ \hline
     \textbf{Importancia} & \commandkey{importance} \\ \hline
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
     \textbf{Estado} & \commandkey{state} \\ \hline
@@ -177,6 +177,20 @@
 \end{tabularx}
 \aftertabularx
 }
+
+% Nombre, autores, fuentes, descripción
+\newkeycommand\actor[id=x,version=1.0][4]{
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{ACT-\commandkey{id}} & \textbf{#1} \\ \hline
+    \textbf{Versión} & \commandkey{version} \\ \hline
+    \textbf{Autores} & #2 \\ \hline
+    \textbf{Fuentes} & #3 \\ \hline
+    \textbf{Descripción} & #4 \\ \hline
+\end{tabularx}
+\aftertabularx
+}
+
 
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
