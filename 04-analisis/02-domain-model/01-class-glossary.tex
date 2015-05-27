@@ -35,7 +35,7 @@
     \item[ExternalPerson] \hfill \\
         Esta clase representa una persona externa, que puede ser la persona que reporta una emergencia, ser una persona atendida en una emergencia, o ambas (incluso en emergencias distintas).
     \item[EmergencyReport] \hfill \\
-        Esta clase sirve para representar el reporte de una emergencia. Cada reporte está hecho por un operador ``en nombre de" una persona externa en un determinado momento. Toda emergencia registrada tiene al menos un \texttt{EmergencyReport}, y el correspondiente operador (el creador del primero) es el que ha dado de alta la emergencia.
+        Esta clase sirve para representar el reporte de una emergencia. Cada reporte está hecho por un operador ``en nombre de" una persona externa en un determinado momento. Toda emergencia registrada tiene al menos un \texttt{EmergencyReport}. El operador correspondiente al primer \texttt{EmergencyReport} de una emergencia es el que la ha dado de alta.
     \item[Comment] \hfill \\
         Esta clase es aportación propia: Permite tener una serie de comentarios asociados a una emergencia. Estos comentarios pueden ser de cualquier persona relacionada con la emergencia (personal asociado, el operador, responsable del centro al que pertenece alguna dotación, etc...).
 \end{description}
