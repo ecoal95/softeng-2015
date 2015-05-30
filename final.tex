@@ -256,10 +256,12 @@
         \end{tabularx}} \\ \hline
     \textbf{Postcondiciones} & \frpostconds \\ \hline
     \textbf{Excepciones} &
+        \ifx&#1&\else
         {\begin{tabularx}{\cellwidth}{c|X}
             \textbf{Paso} & \textbf{Acción} \\ \hline
             #1
-        \end{tabularx}} \\ \hline
+        \end{tabularx}}
+        \fi \\ \hline
     \textbf{Importancia} & \frimportance \\ \hline
     \textbf{Urgencia} & \frurgency \\ \hline
     \textbf{Estado} & \frstate \\ \hline
