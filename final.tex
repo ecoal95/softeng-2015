@@ -1,4 +1,4 @@
-\documentclass[twoside,a4paper]{article}
+\documentclass[12pt,twoside,a4paper]{article}
 \usepackage{anyfontsize}
 \usepackage{titlesec}
 \usepackage{lipsum}
@@ -60,7 +60,8 @@
 \newcommand\reportdate{\today}
 \newcommand\reportauthors{Emilio Cobos, Celia Herrera, Víctor Barrueco}
 \newcommand\version{0.9 (\reportdate)}
-\author{Emilio Cobos Álvarez (70912324-N) \\
+\author{
+    Emilio Cobos Álvarez (70912324-N) \\
     Celia Herrera Ferreira (70898376-W) \\
     Víctor Barrueco Gutiérrez (53518348-Q)
 }
@@ -69,18 +70,19 @@
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 
-\pagestyle{fancy}
+\fancypagestyle{headings}{%
 \fancyhead{}
 \fancyfoot{}
 \fancyhead[LO]{\bfseries\fontsize{11pt}{2em}\selectfont{\reporttitle}}
 \fancyhead[RO,LE]{\bfseries\fontsize{11pt}{2em}\selectfont{\thepage}}
 \fancyhead[RE]{\bfseries\fontsize{11pt}{2em}\selectfont{E. Cobos, C. Herrera, V. Barrueco}}
-
 \renewcommand{\headrulewidth}{1pt}
+}
+
 % TOC page number
 \fancypagestyle{plain}{%
     \fancyhf{}% clears all header and footer fields
-    \fancyfoot[C]{--~\thepage~--}%
+    \fancyfoot[C]{\bfseries\fontsize{11pt}{1em}\selectfont --~\thepage~--}%
     \renewcommand*{\headrulewidth}{0pt}%
     \renewcommand*{\footrulewidth}{0pt}%
 }
@@ -93,6 +95,10 @@
 
 % Versión. Arial 16 puntos, negrita, cursiva, centrado. Separación de 20 puntos con respecto a los párrafos anterior y siguiente.
 \newcommand{\titleversion}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Versión \version \vspace{20pt}\end{center}}
+
+% Autores. Arial 14pt alineación izda, separación de 0 con el párrafo superior
+\preauthor{\begin{flushleft}\sffamily\bfseries\fontsize{16pt}{1em}}
+\postauthor{\end{flushleft}}
 
 % we don't use the latex date to put it before the authors
 \date{}
@@ -109,7 +115,9 @@
 
 % Tabla de conteidos
 % El estilo que se aplicará a esta etiqueta será Arial, 18 puntos, negrita, alineación izquierda, y separación de 20 y 50 puntos con respecto a los párrafos anterior y siguiente respectivamente.
-\renewcommand{\contentsname}{Tabla de contenidos}
+\addto\captionsspanish{
+    \renewcommand{\contentsname}{Tabla de contenidos}
+}
 \setlength\cftbeforetoctitleskip{20pt}
 \setlength\cftaftertoctitleskip{50pt}
 \renewcommand{\cfttoctitlefont}{\bfseries\sffamily\fontsize{18pt}{1em}\selectfont}
@@ -307,13 +315,13 @@
 \maketitle
 \thispagestyle{empty}
 \end{titlingpage}
-\thispagestyle{plain}
+\pagestyle{plain}
 \setcounter{page}{1}
 \hypersetup{linkcolor=black}
 \setcounter{tocdepth}{3}
 \tableofcontents
-
 \newpage
+\pagestyle{headings}
 
 \input{body.tex}
 
