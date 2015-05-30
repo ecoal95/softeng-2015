@@ -1,4 +1,4 @@
-\documentclass[twoside]{article}
+\documentclass[twoside,a4paper]{article}
 \usepackage{anyfontsize}
 \usepackage{titlesec}
 \usepackage{lipsum}
@@ -18,8 +18,7 @@
 \usepackage{environ}
 
 \usepackage[margin=1in]{geometry}
-\usepackage{polyglossia}
-\setmainlanguage{spanish}
+\usepackage[spanish]{babel}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -56,8 +55,16 @@
 
 \setlength{\headheight}{20.0pt}
 
-\title{Ejemplo}
-\author{Emilio Cobos, Celia Herrera, Víctor Barrueco}
+\newcommand\reporttitle{Servicio de emergencias}
+\newcommand\reportsubtitle{Práctica obligatoria Ingeniería del Software I}
+\newcommand\reportdate{\today}
+\newcommand\reportauthors{Emilio Cobos, Celia Herrera, Víctor Barrueco}
+\newcommand\version{0.9 (\reportdate)}
+\author{Emilio Cobos Álvarez (70912324-N) \\
+    Celia Herrera Ferreira (70898376-W) \\
+    Víctor Barrueco Gutiérrez (53518348-Q)
+}
+\title{\reporttitle}
 
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
@@ -65,7 +72,7 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[LO]{\bfseries\fontsize{11pt}{2em}\selectfont{Ejemplo}}
+\fancyhead[LO]{\bfseries\fontsize{11pt}{2em}\selectfont{\reporttitle}}
 \fancyhead[RO,LE]{\bfseries\fontsize{11pt}{2em}\selectfont{\thepage}}
 \fancyhead[RE]{\bfseries\fontsize{11pt}{2em}\selectfont{E. Cobos, C. Herrera, V. Barrueco}}
 
@@ -82,19 +89,23 @@
 \pretitle{\begin{center}\vspace{120pt}\bfseries\sffamily\fontsize{24pt}{1em}\selectfont}
 \posttitle{\vspace{12pt}\end{center}}
 % Subtítulo del trabajo. Arial 20 puntos, negrita, centrado. Separación de 12 y 40 puntos con respecto a los párrafos anterior y siguiente respectivamente.
-\newcommand{\subtitle}{\begin{center}\sffamily\bfseries\fontsize{20pt}{1em}\selectfont Ejemplo \vspace{40pt}\end{center}}
+\newcommand{\titlesubtitle}{\begin{center}\sffamily\bfseries\fontsize{20pt}{1em}\selectfont \reportsubtitle \vspace{40pt}\end{center}}
 
 % Versión. Arial 16 puntos, negrita, cursiva, centrado. Separación de 20 puntos con respecto a los párrafos anterior y siguiente.
-\newcommand{\version}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Ejem. 1.0. \vspace{20pt}\end{center}}
+\newcommand{\titleversion}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Versión \version \vspace{20pt}\end{center}}
 
 % we don't use the latex date to put it before the authors
 \date{}
-\newcommand{\customdate}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Fecha \vspace{90pt}\end{center}}
-\renewcommand{\maketitlehookb}{\subtitle\version\customdate}
+\newcommand{\customdate}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont \reportdate \vspace{90pt}\end{center}}
+\renewcommand{\maketitlehookb}{\titlesubtitle\titleversion\customdate}
 
 % Secciones en páginas impares
 \let\oldsection\section
 \def\section{\cleardoublepage\oldsection}
+
+% Esto no está especificado, pero el documento tiene mejor estructura así
+% \let\oldsubsection\subsection
+% \def\subsection{\clearpage\oldsubsection}
 
 % Tabla de conteidos
 % El estilo que se aplicará a esta etiqueta será Arial, 18 puntos, negrita, alineación izquierda, y separación de 20 y 50 puntos con respecto a los párrafos anterior y siguiente respectivamente.
@@ -106,7 +117,7 @@
 % Títulos de aparado. Arial 14 puntos, negrita, alineación izquierda. Separación de 12 y 6 puntos con respecto a los párrafos anterior y siguiente respectivamente.
 \titlespacing*{\section}
     {0pt}{12pt}{6pt}
-    \titleformat{\section}[hang]
+\titleformat{\section}[hang]
     {\bfseries\sffamily\fontsize{14pt}{1em}\selectfont}{\thesection}{1em}{}
 % Títulos de subapartado. Arial 12 puntos, negrita, cursiva alineación izquierda. Separación de 12 y 6 puntos con respecto a los párrafos anterior y siguiente respectivamente.
 \titlespacing*{\subsection}
@@ -119,6 +130,7 @@
     {0pt}{12pt}{6pt}
 \titleformat{\subsubsection}[hang]
     {\sffamily\fontsize{12pt}{1em}\selectfont}{\thesubsubsection}{1em}{\uline}
+
 % Estilo normal. Times New Roman 12 puntos, alineación completa. Interlineado sencillo. Separación de 0 y
 
 \newcommand\aftertabularx{\vspace{5pt plus 10pt minus 2pt}}
@@ -141,7 +153,9 @@
 \newcommand\validated{Validado}
 
 % name, authors, description, subobjectives, sources
-\newkeycommand\objective[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][5]{%
+\newkeycommand\objective[id=x,version=\version,importance=\high,urgency=\medium,state=\validated,stability=\high][5]{
+% TODO do this more manteinable
+\subsubsection{#1} \hfill \\
 \begin{customtable}
     \hline
     \textbf{OBJ-\commandkey{id}} & \textbf{#1} \\ \hline
@@ -171,15 +185,17 @@
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, datos específicos, intervalo temporal
-\newkeycommand\informationrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][8]{
+\newkeycommand\informationrequisite[id=x,version=\version,importance=\high,urgency=\medium,state=\validated,stability=\high][8]{
+\subsubsection{#1}
 \begin{customtable}
     \hline
     \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
-    \textbf{Objetivos asociados} & #4 \\ \hline
-    \textbf{Requisitos asociados} & #5 \\ \hline
+    % \textbf{Objetivos asociados} & #4 \\ \hline
+    % \textbf{Requisitos asociados} & #5 \\ \hline
+    \textbf{Dependencias} & Ver matriz incluída al final del catálogo \\ \hline
     \textbf{Descripción} & #6 \\ \hline
     \textbf{Datos específicos} & \begin{itemize}[noitemsep,nolistsep]#7\end{itemize} \\ \hline
     \textbf{Intervalo temporal} & #8 \\ \hline
@@ -191,7 +207,7 @@
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, precondición(es), secuencia normal, postcondición(es), excepciones
-\newkeycommand\functionalrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][9]{
+\newkeycommand\functionalrequisite[id=x,version=\version,importance=\high,urgency=\medium,state=\validated,stability=\high][9]{
     \def\frid{\commandkey{id}}
     \def\frname{#1}
     \def\frversion{\commandkey{version}}
@@ -212,14 +228,17 @@
 }
 
 \newcommand\functionalrequisitecont[1]{
+% When enabling we get tex capacity exceeded
+% \paragraph{\frname} \hfill \\
 \begin{customtable}
     \hline
     \textbf{FRQ-\frid} & \textbf{\frname} \\ \hline
     \textbf{Versión} & \frversion \\ \hline
     \textbf{Autores} & \frauthors \\ \hline
     \textbf{Fuentes} & \frsources \\ \hline
-    \textbf{Objetivos asociados} & \frassocobjs \\ \hline
-    \textbf{Requisitos asociados} & \frassocreqs \\ \hline
+    % \textbf{Objetivos asociados} & \frassocobjs \\ \hline
+    % \textbf{Requisitos asociados} & \frassocreqs \\ \hline
+    \textbf{Dependencias} & Ver matriz incluída al final del catálogo \\ \hline
     \textbf{Descripción} & \frdescription \\ \hline
     \textbf{Precondiciones} & \frpreconds \\ \hline
     \textbf{Secuencia normal} &
@@ -241,15 +260,17 @@
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción
-\newkeycommand\nonfunctionalrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][6]{
+\newkeycommand\nonfunctionalrequisite[id=x,version=\version,importance=\high,urgency=\medium,state=\validated,stability=\high][6]{
+\subsection{#1}
 \begin{customtable}
     \hline
     \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
-    \textbf{Objetivos asociados} & #4 \\ \hline
-    \textbf{Requisitos asociados} & #5 \\ \hline
+    % \textbf{Objetivos asociados} & #4 \\ \hline
+    % \textbf{Requisitos asociados} & #5 \\ \hline
+    \textbf{Dependencias} & Ver matriz incluída al final del catálogo \\ \hline
     \textbf{Descripción} & #6 \\ \hline
     \textbf{Importancia} & \commandkey{importance} \\ \hline
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
@@ -259,7 +280,7 @@
 }
 
 % Nombre, autores, fuentes, descripción
-\newkeycommand\actor[id=x,version=1.0][4]{
+\newkeycommand\actor[id=x,version=\version][4]{
 \begin{customtable}
     \hline
     \textbf{ACT-\commandkey{id}} & \textbf{#1} \\ \hline
