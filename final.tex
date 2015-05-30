@@ -15,6 +15,7 @@
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
 \usepackage{titling}
+\usepackage{environ}
 
 \usepackage[margin=1in]{geometry}
 \usepackage{polyglossia}
@@ -81,14 +82,14 @@
 \pretitle{\begin{center}\vspace{120pt}\bfseries\sffamily\fontsize{24pt}{1em}\selectfont}
 \posttitle{\vspace{12pt}\end{center}}
 % Subtítulo del trabajo. Arial 20 puntos, negrita, centrado. Separación de 12 y 40 puntos con respecto a los párrafos anterior y siguiente respectivamente.
-\newcommand{\subtitle}{\begin{center}\vspace{12pt}\sffamily\bfseries\fontsize{20pt}{1em}\selectfont Ejemplo \vspace{40pt}\end{center}}
+\newcommand{\subtitle}{\begin{center}\sffamily\bfseries\fontsize{20pt}{1em}\selectfont Ejemplo \vspace{40pt}\end{center}}
 
 % Versión. Arial 16 puntos, negrita, cursiva, centrado. Separación de 20 puntos con respecto a los párrafos anterior y siguiente.
-\newcommand{\version}{\begin{center}\vspace{20pt}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Ejem. 1.0. \vspace{20pt}\end{center}}
+\newcommand{\version}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Ejem. 1.0. \vspace{20pt}\end{center}}
 
 % we don't use the latex date to put it before the authors
 \date{}
-\newcommand{\customdate}{\begin{center}\vspace{20pt}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Fecha \vspace{90pt}\end{center}}
+\newcommand{\customdate}{\begin{center}\sffamily\bfseries\itshape\fontsize{16pt}{1em}\selectfont Fecha \vspace{90pt}\end{center}}
 \renewcommand{\maketitlehookb}{\subtitle\version\customdate}
 
 % Secciones en páginas impares
@@ -121,6 +122,14 @@
 % Estilo normal. Times New Roman 12 puntos, alineación completa. Interlineado sencillo. Separación de 0 y
 
 \newcommand\aftertabularx{\vspace{5pt plus 10pt minus 2pt}}
+\NewEnviron{customtable}[1][|l|X|]{
+%    \begin{minipage}{\linewidth}
+    \begin{tabularx}{\linewidth}{#1}
+        \BODY
+    \end{tabularx}
+%    \end{minipage}
+    \aftertabularx
+}
 
 
 \newcommand\veryhigh{Muy Alta}
@@ -133,7 +142,7 @@
 
 % name, authors, description, subobjectives, sources
 \newkeycommand\objective[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][5]{%
-\begin{tabularx}{\textwidth}{|l|X|}
+\begin{customtable}
     \hline
     \textbf{OBJ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Version} & \commandkey{version} \\ \hline
@@ -147,25 +156,23 @@
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
     \textbf{Estado} & \commandkey{state} \\ \hline
     \textbf{Estabilidad} & \commandkey{stability} \\ \hline
-\end{tabularx}
-\aftertabularx
+\end{customtable}
 }
 
 % Nombre, dni, rol, descripción
 \newcommand\staff[4]{
-\begin{tabularx}{\textwidth}{|l|X|}
+\begin{customtable}
     \hline
     \textbf{Nombre} & #1 \\ \hline
     \textbf{DNI} & #2 \\ \hline
     \textbf{Rol} & #3 \\ \hline
     \textbf{Descripción} & #4 \\ \hline
-\end{tabularx}
-\aftertabularx
+\end{customtable}
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, datos específicos, intervalo temporal
 \newkeycommand\informationrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][8]{
-\begin{tabularx}{\textwidth}{|l|X|}
+\begin{customtable}
     \hline
     \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Versión} & \commandkey{version} \\ \hline
@@ -180,8 +187,7 @@
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
     \textbf{Estado} & \commandkey{state} \\ \hline
     \textbf{Estabilidad} & \commandkey{stability} \\ \hline
-\end{tabularx}
-\aftertabularx
+\end{customtable}
 }
 
 % Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción, precondición(es), secuencia normal, postcondición(es), excepciones
@@ -204,8 +210,9 @@
     \def\frstability{\commandkey{stability}}
     \functionalrequisitecont
 }
+
 \newcommand\functionalrequisitecont[1]{
-\begin{tabularx}{\textwidth}{|l|X|}
+\begin{customtable}
     \hline
     \textbf{FRQ-\frid} & \textbf{\frname} \\ \hline
     \textbf{Versión} & \frversion \\ \hline
@@ -230,21 +237,37 @@
     \textbf{Urgencia} & \frurgency \\ \hline
     \textbf{Estado} & \frstate \\ \hline
     \textbf{Estabilidad} & \frstability \\ \hline
-\end{tabularx}
-\aftertabularx
+\end{customtable}
+}
+
+% Nombre, autores, fuentes, objetivos asociados, requisitos asociados, descripción
+\newkeycommand\nonfunctionalrequisite[id=x,version=1.0,importance=\high,urgency=\medium,state=\validated,stability=\high][6]{
+\begin{customtable}
+    \hline
+    \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
+    \textbf{Versión} & \commandkey{version} \\ \hline
+    \textbf{Autores} & #2 \\ \hline
+    \textbf{Fuentes} & #3 \\ \hline
+    \textbf{Objetivos asociados} & #4 \\ \hline
+    \textbf{Requisitos asociados} & #5 \\ \hline
+    \textbf{Descripción} & #6 \\ \hline
+    \textbf{Importancia} & \commandkey{importance} \\ \hline
+    \textbf{Urgencia} & \commandkey{urgency} \\ \hline
+    \textbf{Estado} & \commandkey{state} \\ \hline
+    \textbf{Estabilidad} & \commandkey{stability} \\ \hline
+\end{customtable}
 }
 
 % Nombre, autores, fuentes, descripción
 \newkeycommand\actor[id=x,version=1.0][4]{
-\begin{tabularx}{\textwidth}{|l|X|}
+\begin{customtable}
     \hline
     \textbf{ACT-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
     \textbf{Descripción} & #4 \\ \hline
-\end{tabularx}
-\aftertabularx
+\end{customtable}
 }
 
 
