@@ -1,5 +1,5 @@
 BUILD_FILES := final.tex body.tex
-# sed is to convert from ./example to ./example
+# sed is to convert from ./example to example
 TEX_FILES := $(filter-out $(BUILD_FILES), $(sort $(shell find . -name '*.tex' | sed 's/^\.\///g')))
 DIA_DIAGRAMS := $(shell find . -name '*.dia' | sed 's/^\.\///g')
 DIA_IMAGES := $(DIA_DIAGRAMS:.dia=.dia.png)
