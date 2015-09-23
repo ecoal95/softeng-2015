@@ -21,25 +21,42 @@
 \BOOKMARK [2][-]{subsection.3.3}{Requisitos\040funcionales}{section.3}% 21
 \BOOKMARK [3][-]{subsubsection.3.3.1}{Actores}{subsection.3.3}% 22
 \BOOKMARK [3][-]{subsubsection.3.3.2}{Paquete\040Emergency}{subsection.3.3}% 23
-\BOOKMARK [3][-]{subsubsection.3.3.3}{Diagramas\040relacionados}{subsection.3.3}% 24
-\BOOKMARK [2][-]{subsection.3.4}{Requisitos\040no\040funcionales}{section.3}% 25
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Privacidad}{subsection.3.4}% 26
-\BOOKMARK [3][-]{subsubsection.3.4.2}{Seguridad\040de\040los\040datos}{subsection.3.4}% 27
-\BOOKMARK [3][-]{subsubsection.3.4.3}{Escalabilidad}{subsection.3.4}% 28
-\BOOKMARK [2][-]{subsection.3.5}{Matrices}{section.3}% 29
-\BOOKMARK [3][-]{subsubsection.3.5.1}{Matriz\040Objetivos-Requisitos}{subsection.3.5}% 30
-\BOOKMARK [3][-]{subsubsection.3.5.2}{Matriz\040Requisitos-Requisitos}{subsection.3.5}% 31
-\BOOKMARK [1][-]{section.4}{Modelo de análisis}{}% 32
-\BOOKMARK [2][-]{subsection.4.1}{Introducción}{section.4}% 33
-\BOOKMARK [2][-]{subsection.4.2}{Modelo\040de\040dominio}{section.4}% 34
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Glosario\040de\040clases}{subsection.4.2}% 35
-\BOOKMARK [2][-]{subsection.4.3}{Vista de interacción}{section.4}% 36
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Comentar\040emergencia}{subsection.4.3}% 37
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Reportar\040emergencia}{subsection.4.3}% 38
-\BOOKMARK [3][-]{subsubsection.4.3.3}{Confirmar\040emergencia}{subsection.4.3}% 39
-\BOOKMARK [3][-]{subsubsection.4.3.4}{Ver\040detalles\040de\040emergencia}{subsection.4.3}% 40
-\BOOKMARK [3][-]{subsubsection.4.3.5}{Marcar\040emergencia\040como\040resuelta}{subsection.4.3}% 41
-\BOOKMARK [3][-]{subsubsection.4.3.6}{Registrar\040persona\040atendida}{subsection.4.3}% 42
-\BOOKMARK [3][-]{subsubsection.4.3.7}{Actualizar\040inventario}{subsection.4.3}% 43
-\BOOKMARK [3][-]{subsubsection.4.3.8}{Gestionar\040dotaciones}{subsection.4.3}% 44
-\BOOKMARK [2][-]{subsection.4.4}{Propuesta\040de\040arquitectura}{section.4}% 45
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Paquete\040Emergency}{subsection.3.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.3.4}{Diagramas\040relacionados}{subsection.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.4}{Requisitos\040no\040funcionales}{section.3}% 26
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Privacidad}{subsection.3.4}% 27
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Seguridad\040de\040los\040datos}{subsection.3.4}% 28
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Escalabilidad}{subsection.3.4}% 29
+\BOOKMARK [2][-]{subsection.3.5}{Matrices}{section.3}% 30
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Matriz\040Objetivos-Requisitos}{subsection.3.5}% 31
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Matriz\040Requisitos-Requisitos}{subsection.3.5}% 32
+\BOOKMARK [1][-]{section.4}{Modelo de análisis}{}% 33
+\BOOKMARK [2][-]{subsection.4.1}{Introducción}{section.4}% 34
+\BOOKMARK [2][-]{subsection.4.2}{Modelo\040de\040dominio}{section.4}% 35
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Glosario\040de\040clases}{subsection.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.3}{Vista de interacción}{section.4}% 37
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Comentar\040emergencia}{subsection.4.3}% 38
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Ver\040detalles\040de\040emergencia}{subsection.4.3}% 39
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Listar\040emergencias}{subsection.4.3}% 40
+\BOOKMARK [3][-]{subsubsection.4.3.4}{Reportar\040emergencia}{subsection.4.3}% 41
+\BOOKMARK [3][-]{subsubsection.4.3.5}{Confirmar\040emergencia}{subsection.4.3}% 42
+\BOOKMARK [3][-]{subsubsection.4.3.6}{Marcar\040emergencia\040como\040resuelta}{subsection.4.3}% 43
+\BOOKMARK [3][-]{subsubsection.4.3.7}{Registrar\040persona\040atendida}{subsection.4.3}% 44
+\BOOKMARK [3][-]{subsubsection.4.3.8}{Actualizar\040inventario}{subsection.4.3}% 45
+\BOOKMARK [3][-]{subsubsection.4.3.9}{Listar\040dotaciones}{subsection.4.3}% 46
+\BOOKMARK [3][-]{subsubsection.4.3.10}{Crear\040dotaciones}{subsection.4.3}% 47
+\BOOKMARK [3][-]{subsubsection.4.3.11}{Eliminar\040dotaciones}{subsection.4.3}% 48
+\BOOKMARK [3][-]{subsubsection.4.3.12}{Modificar\040dotaciones}{subsection.4.3}% 49
+\BOOKMARK [3][-]{subsubsection.4.3.13}{Listar vehículos}{subsection.4.3}% 50
+\BOOKMARK [3][-]{subsubsection.4.3.14}{Crear vehículos}{subsection.4.3}% 51
+\BOOKMARK [3][-]{subsubsection.4.3.15}{Eliminar vehículos}{subsection.4.3}% 52
+\BOOKMARK [3][-]{subsubsection.4.3.16}{Modificar vehículos}{subsection.4.3}% 53
+\BOOKMARK [3][-]{subsubsection.4.3.17}{Listar\040centros}{subsection.4.3}% 54
+\BOOKMARK [3][-]{subsubsection.4.3.18}{Crear\040centros}{subsection.4.3}% 55
+\BOOKMARK [3][-]{subsubsection.4.3.19}{Eliminar\040centros}{subsection.4.3}% 56
+\BOOKMARK [3][-]{subsubsection.4.3.20}{Modificar\040centros}{subsection.4.3}% 57
+\BOOKMARK [3][-]{subsubsection.4.3.21}{Listar\040usuarios}{subsection.4.3}% 58
+\BOOKMARK [3][-]{subsubsection.4.3.22}{Crear\040usuarios}{subsection.4.3}% 59
+\BOOKMARK [3][-]{subsubsection.4.3.23}{Eliminar\040usuarios}{subsection.4.3}% 60
+\BOOKMARK [3][-]{subsubsection.4.3.24}{Modificar\040usuarios}{subsection.4.3}% 61
+\BOOKMARK [2][-]{subsection.4.4}{Propuesta\040de\040arquitectura}{section.4}% 62

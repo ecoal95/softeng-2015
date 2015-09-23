@@ -53,8 +53,8 @@ def humanize(str):
 
 REPLACER = '../scripts/generate-diagram.py'
 
-def convert(file, model, replacements):
-  target_dir = 'target/%s' % os.path.basename(file).split('.', 1)[0]
+def convert(file, actor, model, replacements):
+  target_dir = 'target/{0}/{1}'.format(os.path.basename(file).split('.', 1)[0], actor)
   command = [ REPLACER, os.path.abspath(file)]
 
   for k, v in replacements.items():
@@ -89,24 +89,29 @@ def convert(file, model, replacements):
       p.wait()
 
 def main():
+  actors = []
   svgs = []
   models = []
 
+  targets = [actors, svgs, models]
+  current_target = 0
   target = svgs
   for arg in sys.argv[1:]:
     if arg == '--':
-      target = models
+      current_target += 1
       continue
 
-    target.append(arg)
+    targets[current_target].append(arg)
 
-  for svg in svgs:
-    for model in models:
-      convert(svg, model, {
-        'model_name': model,
-        'underscored_model_name': underscoreize(model),
-        'plural_model_name': pluralize(model)
-      })
+  for actor in actors:
+    for svg in svgs:
+      for model in models:
+        convert(svg, actor, model, {
+          'actor': actor,
+          'model_name': model,
+          'underscored_model_name': underscoreize(model),
+          'plural_model_name': pluralize(model)
+        })
 
 if __name__ == '__main__':
   main()

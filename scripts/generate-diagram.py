@@ -38,7 +38,6 @@ def main():
       key = key_and_val[0]
       val = key_and_val[1]
 
-    print("Replacing {{{0}}} -> {1}".format(key, val), file=sys.stderr)
     content = content.replace("{{%s}}" % key, val)
 
   print(content)
