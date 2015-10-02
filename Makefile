@@ -13,7 +13,7 @@ final.pdf: $(BUILD_FILES) $(DIA_IMAGES) generated-images
 	# Two compilations to get the TOC working
 	xelatex $<
 	xelatex $<
-	rm body.tex *.aux *.log *.toc
+	rm -f body.tex *.aux *.log *.toc *.out
 
 body.tex: $(TEX_FILES)
 	@echo $^
