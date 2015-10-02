@@ -20,6 +20,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[spanish]{babel}
 
+
+\usepackage{etoolbox}
+
+\newcommand\makeenumerate[1]{#1} % TODO
+
 % Without this we have a lot of whitespace issues :/
 \raggedbottom
 
@@ -204,9 +209,9 @@
     \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
-    % \textbf{Objetivos asociados} & #4 \\ \hline
-    % \textbf{Requisitos asociados} & #5 \\ \hline
-    \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
+    \textbf{Objetivos asociados} & \makeenumerate{#4} \\ \hline
+    \textbf{Requisitos asociados} & \makeenumerate{#5} \\ \hline
+    % \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
     \textbf{Descripción} & #6 \\ \hline
     \textbf{Datos específicos} & \begin{itemize}[noitemsep,nolistsep]#7\end{itemize} \\ \hline
     \textbf{Intervalo temporal} & #8 \\ \hline
@@ -247,9 +252,9 @@
     \textbf{Versión} & \frversion \\ \hline
     \textbf{Autores} & \frauthors \\ \hline
     \textbf{Fuentes} & \frsources \\ \hline
-    % \textbf{Objetivos asociados} & \frassocobjs \\ \hline
-    % \textbf{Requisitos asociados} & \frassocreqs \\ \hline
-    \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
+    \textbf{Objetivos asociados} & \makeenumerate{\frassocobjs} \\ \hline
+    \textbf{Requisitos asociados} & \makeenumerate{\frassocreqs} \\ \hline
+    % \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
     \textbf{Descripción} & \frdescription \\ \hline
     \textbf{Precondiciones} & \frpreconds \\ \hline
     \textbf{Secuencia normal} &
@@ -277,13 +282,13 @@
 \subsubsection{#1}
 \begin{customtable}
     \hline
-    \textbf{IRQ-\commandkey{id}} & \textbf{#1} \\ \hline
+    \textbf{NFR-\commandkey{id}} & \textbf{#1} \\ \hline
     \textbf{Versión} & \commandkey{version} \\ \hline
     \textbf{Autores} & #2 \\ \hline
     \textbf{Fuentes} & #3 \\ \hline
-    % \textbf{Objetivos asociados} & #4 \\ \hline
-    % \textbf{Requisitos asociados} & #5 \\ \hline
-    \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
+    \textbf{Objetivos asociados} & \makeenumerate{#4} \\ \hline
+    \textbf{Requisitos asociados} & \makeenumerate{#5} \\ \hline
+    % \textbf{Dependencias} & Ver matriz incluida al final del catálogo \\ \hline
     \textbf{Descripción} & #6 \\ \hline
     \textbf{Importancia} & \commandkey{importance} \\ \hline
     \textbf{Urgencia} & \commandkey{urgency} \\ \hline
