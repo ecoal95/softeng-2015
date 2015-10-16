@@ -1,2 +1,6 @@
 *.dia.png
+*.dia.svg
+*.png.svg
+*.dia.svg.pdf
+*.pdf_tex
 
