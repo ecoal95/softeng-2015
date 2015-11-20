@@ -17,11 +17,11 @@
         Esta clase representa un vehículo usable por una dotación.
     \item[Center] \hfill \\
         Representa un centro de emergencias.
-    \item[InventoryItem] \hfill \\
-        Representa un tipo de elemento en el inventario de un centro. Cada centro lleva por completo su propio inventario, no comparten nada. Por hacer una analogía, esta clase podría tener el nombre de ``Caja de aspirinas", y tendría varias instancias (\texttt{InventoryItemInstance}), que podrían ser cajas particulares con su fecha de caducidad y estado particular. \par
+    \item[InventoryItemType] \hfill \\
+        Representa un tipo de elemento en el inventario de un centro. Cada centro lleva por completo su propio inventario, no comparten nada. Por hacer una analogía, esta clase podría tener el nombre de ``Caja de aspirinas", y tendría varias instancias (\texttt{InventoryItem}), que podrían ser cajas particulares con su fecha de caducidad y estado particular. \par
         Así, \textbf{para comprobar el stock de un determinado elemento}, el sistema sólo tendría que \textbf{contar el numero de instancias que no han sido utilizadas en una emergencia, están en buen estado (\texttt{corrupted == false}) y no están caducadas}. \par
         Igualmente, para saber si se ha caducado algún elemento desde la última vez que se comprobó el inventario, el sistema tendría que buscar instancias caducadas en el intervalo de tiempo correspondiente.
-    \item[InventoryItemInstance] \hfill \\
+    \item[InventoryItem] \hfill \\
         Representa una instancia de un ítem del inventario tal y como se ha descrito arriba, que puede estar o no asociada a una sección de un informe (\texttt{Section}).
         La asociación con \texttt{Section} representa que esa instancia ha sido usada en una determinada emergencia por una dotación.
     \item[Section] \hfill \\
