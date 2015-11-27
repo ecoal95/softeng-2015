@@ -1,21 +1,21 @@
 \subsection{Subsistemas de diseño y de servicio, dependencias y contenido}
 
-Para la realización del diseño hemos decidido utilizar el patrón MVC (Modelo-
-Vista-Controlador), que es un patrón arquitectónico más que conocido que realiza
-una clara separación entre el \em{modelo} (los datos utilizados), la \em{vista}
-(que son las interfaces con las que interacciona el usuario), y el
-\em{controlador} (que recibe la entrada y traslada los eventos a la vista usando
-los datos del modelo).
+Para la realización del diseño hemos decidido utilizar el patrón MVC (\textit{Modelo
+Vista Controlador}), que es un patrón arquitectónico más que conocido que realiza
+una clara separación entre el \textit{modelo} (los datos utilizados), la
+\textit{vista} (que son las interfaces con las que interacciona el usuario), y
+el \textit{controlador} (que recibe la entrada y traslada los eventos a la vista
+usando los datos del modelo).
 
 Este patrón arquitectónico nos permite tener muy poco acoplamiento, por lo que
 podremos mantener independientemente una gran cantidad de diferentes interfaces
 de usuario, extender la aplicación, o adaptar las vistas a otras plataformas sin
 cambiar la lógica de negocio.
 
-Para el acceso a los datos se ha utilizado el patrón DAO (Data Access Object),
-que deja a los modelos como meros contenedores de datos, y se encarga de
-abstraer toda la interacción con la fuente de los datos (en este caso una base
-de datos relacional).
+Para el acceso a los datos se ha utilizado el patrón DAO (\textit{Data Access
+Object}), que deja a los modelos como meros contenedores de datos, y se encarga
+de abstraer toda la interacción con la fuente de los datos (en este caso una
+base de datos relacional).
 
 De esta manera se espera conseguir un acoplamiento mínimo entre la fuente de
 datos y los modelos, encapsulando completamente dicha fuente de datos, lo que
