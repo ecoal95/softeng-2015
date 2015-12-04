@@ -1,0 +1,16 @@
+\subsection{Vista arquitectónica del modelo de implementación}
+
+Se ha elegido un modelo centralizado por simplicidad, con un sólo servidor de la
+aplicación.
+
+En el caso de que hubiera más necesidades de escalabilidad o seguridad sería
+relativamente sencillo descentralizarlo, por ejemplo:
+
+\begin{itemize}
+  \item Desplegando el componente de administrador u otros en otro servidor.
+  \item Haciendo réplicas del servidor de la aplicación y usando un balanceador
+    de carga delante de ellos.
+\end{itemize}
+
+\includegraphics[width=\textwidth]{diagrams/deployment.dia.png}
+

@@ -1,0 +1,27 @@
+\subsection{Relación de las clases incluídas en cada componente}
+
+Se ha dividido la aplicación en un total de seis componentes preparados para
+el despliegue:
+
+\begin{description}
+  \item[Base] Este componente contiene los paquetes base de la infraestructura
+    de la aplicación. Esto incluye las clases \texttt{View},
+    \texttt{ViewParams}, \texttt{Request}, \texttt{Controller}, y resto de
+    clases proporcionadas por el framework. Se considera un paquete estable, y
+    por lo tanto la dependencia de él no conlleva ningún problema en el
+    hipotético caso de que trataramos de descentralizar la aplicación.
+  \item[Models] Este componente contiene todo lo relacionado con los modelos y
+    el acceso a datos, que será compartido por el resto de componentes.
+  \item[Admin] Este componente se encarga de la administración, y por seguridad
+    se podría desplegar en otro puerto, u otro servidor menos accesible.
+    Contendrá los controladores \texttt{VehiclesController},
+    \texttt{CentersController}, \texttt{DotationsController} y
+    \texttt{UsersControler}, y las vistas correspondientes.
+  \item[Sessions] Este componente se encarga del control de sesiones, y contiene
+    las clases \texttt{SessionsController} y sus vistas correspondientes.
+  \item[Notifications] Este componente sólo contiene la clase
+    \texttt{NotificationsSystem}, aunque usa las clases base y los modelos.
+  \item[Emergency] Este componente contendrá la mayor parte de la aplicación,
+    la parte \textit{pública}. Por lo tanto contiene todos los controladores y
+    vistas restantes.
+\end{description}
